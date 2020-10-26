@@ -1,0 +1,35 @@
+#spring.h2.console.enabled=true
+#spring.datasource.url=jdbc:h2:mem:testdb
+#spring.jpa.show-sql=true
+## Spring DATASOURCE (DataSourceAutoConfiguration & DataSourceProperties)
+spring:
+  h2:
+    console:
+      enabled: true
+      path: /h2
+  datasource:
+    url: jdbc:h2:file:~/ecommercedb
+    username: sa
+    password:
+    driverClassName: org.h2.Driver
+#  jackson:
+#    default-property-inclusion: non_null
+#  redis:
+#    host: localhost
+#    port: 6379
+#  freemarker:
+#      cache: false
+
+
+
+
+  queries:
+    users-query: select email, password, active from users where email=?
+    roles-query: select email, role from users where email=?
+server:
+  servlet:
+    contextPath: /api
+
+jwtSecret: tekup.de
+jwtExpiration: 86400
+
